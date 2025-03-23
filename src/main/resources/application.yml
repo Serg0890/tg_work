@@ -9,20 +9,20 @@ telegram:
         value: 10
         unit: MINUTES
 
-binance:
-  api:
+api:
+  binance:
     getPrice: https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT
+  cbr:
+    dailyRates: https://www.cbr-xml-daily.ru/daily_json.js
 
-db:
-  driver:
-    name: org.postgresql.Driver
-  url: jdbc:postgresql://localhost:5432/db
-  user: root
-  password: root
+#db:
+#  driver:
+#    name: org.postgresql.Driver
+#  url: jdbc:postgresql://localhost:5432/db
+#  user: root
+#  password: root
 
 spring:
-
-
   datasource:
     url: jdbc:postgresql://localhost:5432/db
     username: root

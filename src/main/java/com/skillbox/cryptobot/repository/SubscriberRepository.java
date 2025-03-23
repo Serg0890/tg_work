@@ -15,8 +15,8 @@ public interface SubscriberRepository extends JpaRepository<Subscriber, UUID> {
 
     @Query("SELECT s.subscribedPrice FROM Subscriber s WHERE s.telegramId = :telegramId")
     Optional<BigDecimal> findSubscriptionByTelegramId(Long telegramId);
-    @Query("SELECT s")
-    Optional<BigDecimal> findSubscriberByPrice(BigDecimal price);
+//    @Query("SELECT s")
+//    Optional<BigDecimal> findSubscriberByPrice(BigDecimal price);
 
 
 }

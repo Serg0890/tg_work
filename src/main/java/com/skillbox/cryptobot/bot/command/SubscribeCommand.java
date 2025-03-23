@@ -1,6 +1,6 @@
 package com.skillbox.cryptobot.bot.command;
 
-import com.skillbox.cryptobot.service.CryptoCurrencyService;
+import com.skillbox.cryptobot.service.PriceCurrencyService;
 import com.skillbox.cryptobot.service.SubscriberService;
 import com.skillbox.cryptobot.service.TelegramMessageService;
 import com.skillbox.cryptobot.utils.TextUtil;
@@ -22,7 +22,7 @@ import java.math.BigDecimal;
 public class SubscribeCommand implements IBotCommand {
     private final TelegramMessageService telegramMessageService;
     private final SubscriberService subscriberService;
-    private final CryptoCurrencyService cryptoCurrencyService;
+    private final PriceCurrencyService priceCurrencyService;
 
 
 
@@ -47,7 +47,7 @@ public class SubscribeCommand implements IBotCommand {
         try {
             BigDecimal targetPrice = new BigDecimal(arguments[0]);
             subscriberService.subscriber(chatId, targetPrice);
-            String priceBtc = TextUtil.toString(cryptoCurrencyService.getBitcoinPrice());
+            String priceBtc = TextUtil.toString(priceCurrencyService.getBitcoinPrice());
 
             telegramMessageService.sendMessage(absSender, chatId, "текущий курс бтц " + priceBtc + " usd");
             telegramMessageService.sendMessage(absSender, chatId, "подписка на бтц " + targetPrice + " usd");

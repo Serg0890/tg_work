@@ -46,7 +46,8 @@ public class StartCommand implements IBotCommand {
                 Привет! я готов к работе, скажу курсы валют.
                 мои команды пока что:
                  /subscribe [число] - подписаться на уведомления курса BTC
-                 /get_price - получить стоимость биткоина
+                 /get_price_BTC - получить стоимость биткоина
+                 /get_price_RUB - стоимость рубля
                  /get_subscription - получить инфо о подписке
                  /unsubscribe - отменить подписку
                 """ + responceText);

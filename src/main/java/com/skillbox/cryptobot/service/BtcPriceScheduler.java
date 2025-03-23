@@ -13,7 +13,7 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class BtcPriceScheduler {
 
-    private final CryptoCurrencyService currencyService;
+    private final PriceCurrencyService currencyService;
 
     @Scheduled(cron = "0 */2 * * * *") //every 2 min
     public double fetchPriceBtc(){
