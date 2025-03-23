@@ -18,7 +18,7 @@ import org.telegram.telegrambots.meta.bots.AbsSender;
 @AllArgsConstructor
 public class GetPriceCommand implements IBotCommand {
 
-    private final CryptoCurrencyService service;
+    private final CryptoCurrencyService cryptoCurrencyService;
 
     @Override
     public String getCommandIdentifier() {
@@ -35,7 +35,9 @@ public class GetPriceCommand implements IBotCommand {
         SendMessage answer = new SendMessage();
         answer.setChatId(message.getChatId());
         try {
-            answer.setText("Текущая цена биткоина " + TextUtil.toString(service.getBitcoinPrice()) + " USD");
+            answer.setText("Текущая цена биткоина " +
+                    TextUtil.toString(cryptoCurrencyService.getBitcoinPrice()) + " USD");
+//            log.error("создан лог с прайсом " + answer.getChatId());
             absSender.execute(answer);
         } catch (Exception e) {
             log.error("Ошибка возникла /get_price методе", e);

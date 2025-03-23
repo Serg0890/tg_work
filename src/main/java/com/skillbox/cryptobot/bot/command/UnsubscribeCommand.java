@@ -1,5 +1,8 @@
 package com.skillbox.cryptobot.bot.command;
 
+import com.skillbox.cryptobot.repository.SubscriberRepository;
+import com.skillbox.cryptobot.service.SubscriberService;
+import com.skillbox.cryptobot.service.TelegramMessageService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -15,6 +18,10 @@ import org.telegram.telegrambots.meta.bots.AbsSender;
 @AllArgsConstructor
 public class UnsubscribeCommand implements IBotCommand {
 
+    private final SubscriberRepository subscriberRepository;
+    private final SubscriberService subscriberService;
+    private final TelegramMessageService telegramMessageService;
+
 
     @Override
     public String getCommandIdentifier() {
@@ -28,6 +35,13 @@ public class UnsubscribeCommand implements IBotCommand {
 
     @Override
     public void processMessage(AbsSender absSender, Message message, String[] arguments) {
+        Long chatId = message.getChatId();
 
+        boolean isDeleteds = subscriberService.removeSubscriber(chatId);
+        if (isDeleteds) {
+            telegramMessageService.sendMessage(absSender, chatId, " подписка отменена");
+        }else {
+            telegramMessageService.sendMessage(absSender, chatId, " активных подписок небыло");
+        }
     }
 }

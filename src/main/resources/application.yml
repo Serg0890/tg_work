@@ -19,3 +19,18 @@ db:
   url: jdbc:postgresql://localhost:5432/db
   user: root
   password: root
+
+spring:
+
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db
+    username: root
+    password: root
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+
