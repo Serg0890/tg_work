@@ -47,6 +47,7 @@ public class CentralBankClient {
             throw e;
         }
     }
+
     public void saveJsonToFile(String jsonStr, String filePath){
         ObjectMapper mapper = new ObjectMapper();
         try{

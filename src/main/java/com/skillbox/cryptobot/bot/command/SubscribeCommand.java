@@ -50,7 +50,8 @@ public class SubscribeCommand implements IBotCommand {
             String priceBtc = TextUtil.toString(priceCurrencyService.getBitcoinPrice());
 
             telegramMessageService.sendMessage(absSender, chatId, "текущий курс бтц " + priceBtc + " usd");
-            telegramMessageService.sendMessage(absSender, chatId, "подписка на бтц " + targetPrice + " usd");
+            telegramMessageService.sendMessage(absSender, chatId,
+                    "Вы подписаны на стоимость биткоина " + targetPrice + " usd");
         }catch (Exception e) {
             telegramMessageService.sendMessage(absSender, chatId, " error /subscribe " + arguments[0]);
         }

@@ -12,17 +12,16 @@ import java.io.IOException;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class PriceScheduler {
+public class PriceUpdateScheduler {
 
     private final PriceCurrencyService currencyService;
-    private final SchedulerConfig schedulerConfig;
 
     @Scheduled(fixedRateString = "${api.scheduler.rate}") //every 2 min
     public double updateBtcPrice(){
         double currentPrice = 0;
         try{
             currentPrice = currencyService.getBitcoinPrice();
-            log.info("btc currentPrice  " + currentPrice);
+            log.info("BTC currentPrice <<<-------  " + currentPrice);
         }catch (IOException e) {
             log.error("error fetch price btc");
         }

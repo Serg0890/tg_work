@@ -39,9 +39,9 @@ public class UnsubscribeCommand implements IBotCommand {
 
         boolean isDeleteds = subscriberService.removeSubscriber(chatId);
         if (isDeleteds) {
-            telegramMessageService.sendMessage(absSender, chatId, " подписка отменена");
+            telegramMessageService.sendMessage(absSender, chatId, " Подписка отменена");
         }else {
-            telegramMessageService.sendMessage(absSender, chatId, " активных подписок небыло");
+            telegramMessageService.sendMessage(absSender, chatId, " Активные подписки отсутствуют");
         }
     }
 }

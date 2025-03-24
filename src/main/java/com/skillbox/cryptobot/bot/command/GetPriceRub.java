@@ -19,7 +19,6 @@ public class GetPriceRub implements IBotCommand {
 
     private final PriceCurrencyService priceCurrencyService;
 
-
     @Override
     public String getCommandIdentifier() {
         return "get_price_Rub";
@@ -41,6 +40,5 @@ public class GetPriceRub implements IBotCommand {
         } catch (Exception e) {
             log.error("error to /get_price_rub методе", e);
         }
-
     }
 }

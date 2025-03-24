@@ -43,5 +43,4 @@ public class GetPriceBtcCommand implements IBotCommand {
             log.error("Ошибка возникла /get_price_Btc методе", e);
         }
     }
-
 }

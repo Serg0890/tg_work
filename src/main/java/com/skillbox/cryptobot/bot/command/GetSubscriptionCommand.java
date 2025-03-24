@@ -41,10 +41,11 @@ public class GetSubscriptionCommand implements IBotCommand {
         if (user.isPresent()) {
             BigDecimal price = user.get().getSubscribedPrice();
             if (price != null) {
-                telegramMessageService.sendMessage(absSender, user.get().getTelegramId(), "подписка активна на  " + price
-                        + " usd");
+                telegramMessageService.sendMessage(absSender, user.get().getTelegramId(),
+                        "Вы подписаны на стоимость биткоина  " + price
+                        + " USD");
             } else {
-                telegramMessageService.sendMessage(absSender, chatId, " активных подписок нет");
+                telegramMessageService.sendMessage(absSender, chatId, " Активные подписки отсутствуют");
 
             }
         }else {
